@@ -9,7 +9,7 @@ The purpose of creating this software was to practice Laravel fundamentals (spec
 ## 📽️ Software Demo Video
 
 **YouTube Demo**  
-*(A one-minute demo showing the software workflow, CRUD operations, grade assignment, and the real-time report updates.)*
+*https://youtu.be/Xh1JJC8rdKQ*
 
 ---
 

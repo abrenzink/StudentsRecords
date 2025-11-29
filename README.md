@@ -1,59 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Student Records Overview
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Student Records is a Laravel-based web application designed to manage academic information in a simple and organized way. The system allows users to add new students, update their course grades, generate performance reports, and visualize real-time statistics. It includes a dashboard where users can register students, view all students, assign grades per course, and review summarized analytics about student performance.
 
-## About Laravel
+The purpose of creating this software was to practice Laravel fundamentals (specifically raw SQL query building and integration within Laravel controllers) while reinforcing concepts such as CRUD operations, joins, database structure, and aggregate reporting. This project also serves as a portfolio piece demonstrating backend logic built without ORM abstractions.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📽️ Software Demo Video
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**YouTube Demo**  
+*(A one-minute demo showing the software workflow, CRUD operations, grade assignment, and the real-time report updates.)*
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Development Environment
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Tools Used:**  
+VS Code, PHP, Composer, Laravel, SQLite, Git/GitHub
 
-## Laravel Sponsors
+**Programming Language:**  
+PHP
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Framework:**  
+Laravel
 
-### Premium Partners
+**Database:**  
+SQLite (used to create and store the entire database, tables, and records)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### ✔️ Key Features Implemented
 
-## Contributing
+- Database built with **SQLite**, containing multiple tables (`students`, `courses`, `grades`).
+- **All operations implemented using raw SQL**, not Eloquent ORM.
+- Full CRUD using manually written SQL queries:
+  - `INSERT`, `UPDATE`, `DELETE`, `SELECT`
+- Joins between two or more tables using pure SQL.
+- Aggregate SQL functions implemented directly, such as:
+  - `AVG()` for average grade per student  
+  - `AVG()` for overall course averages  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🎯 Features & Functionality
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Add New Students** through a simple dashboard.  
+- **View All Students**, each with a dropdown to select a course and assign a grade.  
+- **Add Grades** to the selected student and course combination.  
+- **Automatic Reports**, including:
+  - Average grade of each student  
+  - Overall grade average for each course  
+- **Management Route:**  
+  - `/student` — edit and remove student records  
+- Dashboard updates automatically when new grades are submitted.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📡 Application Routes
 
-## License
+### 🔷 Dashboard Routes
+These routes handle the main view where students, courses, grades, and reports are displayed.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Method | Route | Description |
+|--------|--------|-------------|
+| GET | `/dashboard` | Displays students, courses, grades, and performance reports. |
+| POST | `/dashboard/students` | Creates a new student from the dashboard. |
+| POST | `/dashboard/students/{student}/grades` | Adds a grade for a specific student. |
+
+---
+
+### 🔷 Student Management Routes
+These routes handle CRUD operations for student records.
+
+| Method | Route | Description |
+|--------|--------|-------------|
+| GET | `/students` | Lists all students. |
+| POST | `/students` | Creates a new student. |
+| GET | `/students/{id}/edit` | Shows edit form for a specific student. |
+| PUT | `/students/{id}` | Updates the selected student's data. |
+| DELETE | `/students/{id}` | Deletes a student. |
+
+---
+
+## 🌐 Useful Websites
+
+| Website Name | Link |
+|--------------|------|
+| Laravel Documentation | https://laravel.com/docs |
+| PHP Manual | https://www.php.net/manual/en/ |
+| SQLite Documentation | https://www.sqlite.org/docs.html |
+| W3Schools SQL Tutorial | https://www.w3schools.com/sql/ |
+| SQL Reference (MDN) | https://developer.mozilla.org/en-US/docs/Web/SQL |
+
+---
+

@@ -1,7 +1,0 @@
-POST http://127.0.0.1:8000/dashboard/students/8/grades
-Content-Type: application/json
-
-{
-    "course_id": 3,
-    "grade": 10
-}
